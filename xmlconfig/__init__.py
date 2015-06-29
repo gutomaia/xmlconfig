@@ -10,11 +10,11 @@ def set_node(node, paths, value=None, **kwargs):
     for n in paths:
         actual = [child for child in node.getchildren() if child.tag == n]
         node = actual[-1] if actual else ET.SubElement(node, n)
-    if value:
-        node.text = value
-    else:
+    if isinstance(value, dict):
         for key, value in kwargs.iteritems():
             ET.SubElement(node, key).text = value
+    else:
+        node.text = value
 
 def change_node(filename, path, value):
     if exists(filename):
