@@ -38,7 +38,7 @@ def change_node(filename, path, value):
 
 def main(argv):
     parser = argparse.ArgumentParser(
-            prog = 'configxml',
+            prog = 'xmlconfig',
             description ='fix your xml config files'
         )
 
